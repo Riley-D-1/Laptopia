@@ -1,0 +1,20 @@
+body {
+	background-color: rgb(0, 0, 60);
+	margin-top: 0;
+}
+h1 {
+	color: rgb(255, 255, 255);
+    }
+body{
+	color:rgb(255, 255, 255);
+
+}
+table{
+	background-color: rgb(23, 30, 161)
+}
+thead{
+    padding: 8px 50%;  
+}
+#table_container{
+    padding: 8px 50%;  
+}
