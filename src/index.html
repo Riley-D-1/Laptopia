@@ -6,39 +6,28 @@
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <link rel="stylesheet" href="main.css">
     <script src = "main.js"></script>
-    <title>Document</title>
+    <title>Laptopia</title>
 </head>
 <body>
-    <h1>Laptop Data</h1>
-    <select id="Sort_by"> 
-        <option selected disabled>Sort by</option>
-        <option value="screen_size">Screen Size</option>
-        <option value="brand">Brand</option>
-        <option value="price" >Price (AUD)</option>
-    </select>
-    <button onclick="update_table()">Show me da laptops!</button>
+    <h1>Laptopia</h1>
+    <h2>A database all about laptops (including Frameworks)</h2>
     <input id = "search" type = "text" oninput="search_()" placeholder="🔎 Search Bar">
-
     <br><br>
-    <table>
+    <h3>Sort By:</h3>
+    <select id="Sort_by"oninput = "update_table(get_sort_type())"> 
+        <option value = "nothing" selected>Default</option>
+        <option value="title">Product Name: A-Z</option>
+        <option value="brand">Brand: A-Z</option>
+        <option value="price_low" >Price: Low - High</option>
+        <option value="price_high" >Price: High - Low</option>
+        <option value="cpu_ghz">CPU: GHZ</option>
+        <option value="cpu_core">CPU: Core Count</option>
+        <option value="screen_size">Screen: Size (Inches)</option>
+    </select>
+    <br><br>
+    <div id="table-container"></div>
     <thead>
-        <th>Index</th>
-        <th>Brand</th>
-        <th>Product Name</th>
-        <th>Screen Size (Inches)</th>
-        <th>Display Type</th>
-        <th>Resolution (Pixels)</th>
-        <th>Processor</th>
-        <th>Core Count</th>
-        <th>Graphics</th>
-        <th>Ram (GB)</th>
-        <th>Ram Type</th>
-        <th>Total Storage (GB)</th>
-        <th> Wifi</th>
-        <th>OS</th>
-        <th>Weight</th>
-        <th>Manufacturer's warranty</th>
-        <th>Price in AUD</th>
+        
     </tr>
     </thead>
     <tbody>

@@ -11,28 +11,65 @@ function parse_csv(){
     }});
 
 }
+// Comments for own sake
+//<th>Index</th>
+//        <th>Brand</th>
+//        <th>Product Name</th>
+ //       <th>Screen Size (Inches)</th>
+  //      <th>Display Type</th>
+ //       <th>Resolution (Pixels)</th>
+  //      <th>Processor</th>
+    //    <th>Clock Speed (Ghz)</th>
+  //      <th>Core Count</th>
+  //      <th>Graphics</th>
+  //      <th>Ram (GB)</th>
+  ///      <th>Ram Type</th>
+ //       <th>Total Storage (GB)</th>
+ //       <th> Wifi</th>
+ //       <th>OS</th>
+  //      <th>Weight</th>
+ //    <th>Manufacturer's warranty</th>
+  //      <th>Price in AUD</th>
 
+
+
+
+function get_sort_type(){
+  return document.getElementById('Sort_by').value
+}
 function update_table(sort){
+    let saved_laptop_info  = JSON.parse(localStorage.getItem("laptop_info"))
     // clear previous tables
     // Styling changes the table to look nicer fyi
     const container = document.getElementById('table-container')
     container.innerHTML = "";
-    if (localStorage.getItem("laptop_info").length >= 1){
+    if (saved_laptop_info.length >= 1){
         console.log("making laptop_database");
-       
+        console.log(saved_laptop_info)
+        const headings = Object.keys(saved_laptop_info[0]);
+        console.log(headings)
         // Where the table is going 
         // The actual table
         const table = document.createElement('table')
+        const table_head = document.createElement('table_head')
+        const header_row = document.createElement('tr')
+        headings.forEach(val => {
+            let heading = document.createElement('th')
+            heading.textContent = val
+            header_row.appendChild(heading)
+        });
+        table_head.appendChild(header_row)
+        table.appendChild(table_head)  
+        console.log("done headings")  
         // body of table 
         const table_body = document.createElement('table_body')
         table.appendChild(table_body)
         container.appendChild(table)
+        let laptop_db
         if(sort === "price"){
-            laptop_db_old = JSON.parse(localStorage.getItem("laptop_info"))
-            laptop_db = dataArray.sort((a, b) => a.price_aud - b.price_aud);
+            laptop_db = saved_laptop_info.sort((a, b) => a.price_aud - b.price_aud);
         }else if (sort === "brand"){
-            laptop_db_old = JSON.parse(localStorage.getItem("laptop_info"))
-            dataArray.sort((a, b) => {
+            laptop_db = saved_laptop_info.sort((a, b) => {
                 const brand_a = a.brand.toLowerCase();
                 const brand_b = b.brand.toLowerCase();
                 if (brand_a < brand_b) {
@@ -45,7 +82,7 @@ function update_table(sort){
             });
         }
         else{
-            laptop_db = JSON.parse(localStorage.getItem("laptop_info"))
+            laptop_db = saved_laptop_info
         }
         laptop_db.forEach(laptop => {
             // Making the row itself to append
@@ -64,57 +101,75 @@ function update_table(sort){
             row_table.appendChild(product_name)
             // Screen Size
             const screen_size = document.createElement('td')
-            screen_size.textContent = laptop.screen_size
+            screen_size.textContent = laptop.Screen_Size
             row_table.appendChild(screen_size)
             // Display Type
             const display_type = document.createElement('td')
-            display_type.textContent = laptop.display_type
+            display_type.textContent = laptop.Display_Type
             row_table.appendChild(display_type)
             // Resolution
             const resolution = document.createElement('td')
-            resolution.textContent = laptop.resolution
+            resolution.textContent = laptop.Resolution
             row_table.appendChild(resolution)
             // Processor
             const processor = document.createElement('td')
-            processor.textContent = laptop.processor
+            processor.textContent = laptop.Processor
             row_table.appendChild(processor)
+            // Clock Speed
+            const clock_speed = document.createElement('td')
+            clock_speed.textContent = laptop.Clock_Speed
+            row_table.appendChild(clock_speed)
             // Core count
             const core_count = document.createElement('td')
-            core_count.textContent = laptop.core_count
+            core_count.textContent = laptop.Core_Count
             row_table.appendChild(core_count)
             // Graphics
             const graphics = document.createElement('td')
-            graphics.textContent = laptop.graphics
+            graphics.textContent = laptop.Graphics
             row_table.appendChild(graphics)
             // ram gb
             const ram_gb = document.createElement('td')
-            ram_gb.textContent = laptop.ram_gb
+            ram_gb.textContent = laptop.Ram_gb
             row_table.appendChild(ram_gb)
+            // Ram type
+            const ram_type = document.createElement('td')
+            ram_type.textContent = laptop.Ram_Type
+            row_table.appendChild(ram_type)
             // Total Storage gb
             const storage = document.createElement('td')
-            storage.textContent = laptop.storage
+            storage.textContent = laptop.Storage
             row_table.appendChild(storage)
             // Wifi
             const wifi = document.createElement('td')
-            wifi.textContent = laptop.wifi
+            wifi.textContent = laptop.Wifi
             row_table.appendChild(wifi)
             // OS
             const os = document.createElement('td')
-            os.textContent = laptop.os
+            os.textContent = laptop.Os
             row_table.appendChild(os)
             // Weight
             const weight = document.createElement('td')
-            weight.textContent = laptop.weight
+            weight.textContent = laptop.Weight
             row_table.appendChild(weight)
             // Waranty
             const waranty = document.createElement('td')
-            waranty.textContent = laptop.waranty
+            waranty.textContent = laptop.Waranty
             row_table.appendChild(waranty)
             // Price AUD
             const price_aud = document.createElement('td')
-            price_aud.textContent = laptop.price_aud
+            price_aud.textContent = laptop.Price_AUD
             row_table.appendChild(price_aud)
-            // Appending the row
+            // Link
+            const link_cell = document.createElement('td')
+            // Create the link itself
+            const linky_part = document.createElement('a')
+            linky_part.href = laptop.Link 
+            linky_part.textContent = laptop.Link
+            // Ensures that it opens in an new tab
+            linky_part.target = "_blank"
+            link_cell.appendChild(linky_part)
+            row_table.appendChild(link_cell)
+            // Appending the entire row
             table_body.appendChild(row_table)
             });
         container.appendChild(table);
@@ -122,8 +177,9 @@ function update_table(sort){
     }
 }
 function search_(){
-
+    alert("Unfinished, please ignore and don't try atm")
 }
 window.onload = function() {
     parse_csv()
+    update_table(get_sort_type())
 }
