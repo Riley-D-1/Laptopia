@@ -60,8 +60,6 @@ function update_table(sort){
         }else if(sort === "screen_size"){  
             filtered_vals = saved_laptop_info.filter((b) => b["Screen Size (Inches)"]);
             laptop_db = filtered_vals.sort((a, b) => a["Screen Size (Inches)"] - b["Screen Size (Inches)"]);
-        }else if (sort === "storage"){
-            laptop_db = saved_laptop_info.sort((a, b) => a.Storage - b.Storage);
         }else{
             laptop_db = saved_laptop_info
         }
@@ -125,7 +123,7 @@ function update_table(sort){
             if (brand.textContent === "Framework"){
                 storage.textContent = laptop.Storage+"+ GB (Upgradable)"
             }else{
-                storage.textContent = laptop.Storage+" GB"
+                storage.textContent = laptop.Storage
             }
 
             row_table.appendChild(storage)

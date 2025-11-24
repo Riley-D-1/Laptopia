@@ -1,6 +1,10 @@
 # Laptopia
 A website all about finding infomation about laptops. It includes a web scraper and a website that updates when you run the scraper.
 Laptopia is a data base of over 300+ laptops (including our beloved frameworks)
+## Demo 
+Visit: https://riley-d-1.github.io/Laptopia/src/index.html
+#### Screenshot
+![alt-text](screenshot.png)
 ## Why did I make this project
 - I love tech and nerding out about stats and wanted a quick comparison site not filled with ads and junk.
 - I also wanted to see how framework laptops compare to the competition in a collection of catagories

@@ -5,46 +5,50 @@ body {
 	background-size: 500px;
 	background-position: center center;
 	background-repeat: repeat;
-	color:#E0E0E0;
+	color: #E0E0E0;
 }
 a:link {
-  	color: #E0E0E0;
+  	color: #00ffc8;
+}
+a:visited {
+	color: #0059ff;
+  	
 }
 table{ 
 	border-collapse: collapse;
-	width: 99%;
+	width: 100%;
 	table-layout: fixed;         
 }
 h1 {
 	color: #E0E0E0;
 }
-tr{
-	width: auto; 
-}
+
 td{
-  	text-align: left;
 	background-color: #2A4D69;
 }
-th{
+th {
 	position: sticky;
-  	background-color: #0059ff;
-  	color: #E0E0E0;
+	top: 0;
+	background-color: #0059ff;
+	color: #E0E0E0;
+	z-index: 2;
 }
 td,th{
   	border: 1px solid #E0E0E0;
 	padding: 8px;
+	text-align: left;
 	word-wrap: break-word;
+	width: auto;  
 	
 }
 #table_container{
 	overflow: scroll;  
 }
-
-
-thead, tbody {
-	
-	display: table;
-	width: 100%;
+thead{
+	display: table-header-group;
+}
+tbody{
+  display: table-row-group; 
 }
 select{
 	background-color:#2A4D69;
