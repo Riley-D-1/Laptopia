@@ -2,12 +2,8 @@
 import pandas as pd
 import time
 from selenium import webdriver
-from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.chrome.service import Service
-import random
-from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 # Setting up info
 jb_core_url = "https://www.jbhifi.com.au/collections/computers-tablets/laptops?hitsPerPage=400"

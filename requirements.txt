@@ -1,2 +1,3 @@
-b4soup
 pandas
+selenium
+webdriver-manager

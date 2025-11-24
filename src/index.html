@@ -10,18 +10,19 @@
 </head>
 <body>
     <h1>Laptopia</h1>
-    <h2>A database all about laptops (including Frameworks)</h2>
-    <input id = "search" type = "text" oninput="search_()" placeholder="🔎 Search Bar">
+    <h2>A database all about laptops [300+ laptops currently sold] (including Frameworks!)</h2>
+    <a href = "https://github.com/Riley-D-1/Laptopia">See the Github for more info!</a> 
     <br><br>
     <h3>Sort By:</h3>
     <select id="Sort_by"oninput = "update_table(get_sort_type())"> 
         <option value = "nothing" selected>Default</option>
-        <option value="title">Product Name: A-Z</option>
+        <option value="product_name">Product Name: A-Z</option>
         <option value="brand">Brand: A-Z</option>
         <option value="price_low" >Price: Low - High</option>
         <option value="price_high" >Price: High - Low</option>
         <option value="cpu_ghz">CPU: GHZ</option>
-        <option value="cpu_core">CPU: Core Count</option>
+        <option value="ram_amount">RAM: GB Amount</option>
+        <option value="storage">Storage: GB Amount</option>
         <option value="screen_size">Screen: Size (Inches)</option>
     </select>
     <br><br>

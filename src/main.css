@@ -7,33 +7,44 @@ body {
 	background-repeat: repeat;
 	color:#E0E0E0;
 }
-table{
-	max-width: 99%;
+a:link {
+  	color: #E0E0E0;
+}
+table{ 
+	border-collapse: collapse;
+	width: 99%;
+	table-layout: fixed;         
 }
 h1 {
 	color: #E0E0E0;
 }
-
-table,td{
-	table-layout: fixed;
-	border: 1px solid #E0E0E0;
-	border-collapse: collapse;
+tr{
+	width: auto; 
 }
 td{
-	padding: 10px;
   	text-align: left;
 	background-color: #2A4D69;
 }
 th{
-	padding: 8px 12px;;
-	border: 1px solid #E0E0E0;
+	position: sticky;
   	background-color: #0059ff;
   	color: #E0E0E0;
-	border-collapse: collapse;
+}
+td,th{
+  	border: 1px solid #E0E0E0;
+	padding: 8px;
+	word-wrap: break-word;
+	
+}
+#table_container{
+	overflow: scroll;  
 }
 
-#table_container{
-    padding: 8px 50%;  
+
+thead, tbody {
+	
+	display: table;
+	width: 100%;
 }
 select{
 	background-color:#2A4D69;
